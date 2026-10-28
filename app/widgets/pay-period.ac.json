@@ -1,0 +1,33 @@
+{
+  "type": "AdaptiveCard",
+  "$schema": "http://adaptivecards.io/schemas/adaptive-card.json",
+  "version": "1.5",
+  "body": [
+    { "type": "TextBlock", "text": "${title}", "weight": "Bolder", "size": "Medium", "wrap": false },
+    { "type": "TextBlock", "text": "${subtitle}", "isSubtle": true, "spacing": "None", "wrap": true },
+    {
+      "type": "Container",
+      "spacing": "Medium",
+      "$when": "${hasJob}",
+      "items": [
+        { "type": "TextBlock", "text": "${gross}", "size": "ExtraLarge", "weight": "Bolder", "spacing": "None" },
+        { "type": "TextBlock", "text": "Gross estimate", "isSubtle": true, "size": "Small", "spacing": "None" },
+        {
+          "type": "ColumnSet",
+          "spacing": "Small",
+          "columns": [
+            { "type": "Column", "width": "auto", "items": [{ "type": "TextBlock", "text": "${hours}", "weight": "Bolder" }] },
+            { "type": "Column", "width": "stretch", "items": [{ "type": "TextBlock", "text": "${overtime}", "isSubtle": true }] }
+          ]
+        },
+        { "type": "TextBlock", "text": "${tips}", "isSubtle": true, "spacing": "None", "$when": "${tips != ''}" },
+        { "type": "TextBlock", "text": "${clockText}", "spacing": "Medium", "weight": "Bolder", "color": "Accent" }
+      ]
+    }
+  ],
+  "actions": [
+    { "type": "Action.Execute", "title": "Clock in", "verb": "clock-in", "$when": "${canClockIn}" },
+    { "type": "Action.Execute", "title": "Clock out", "verb": "clock-out", "$when": "${canClockOut}" },
+    { "type": "Action.Execute", "title": "Open Hourstub", "verb": "open" }
+  ]
+}

@@ -1,0 +1,13 @@
+{
+  "title": "Hourstub",
+  "subtitle": "Open Hourstub to see this pay period here.",
+  "pro": false,
+  "hasJob": false,
+  "gross": "",
+  "hours": "",
+  "overtime": "",
+  "tips": "",
+  "clockText": "",
+  "canClockIn": false,
+  "canClockOut": false
+}
